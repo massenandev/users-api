@@ -18,5 +18,12 @@ router.get('/users/:userId', (request, response) => {
   }).exec().then((user) => response.json(user))
 })
 
+router.put('/users/:userId', (request, response) => {
+  const { userId } = request.params
+  const body = request.body
+  User.findOneAndUpdate({ 'login.uuid': userId }, body, { new: true }).exec().then((user) => response.json(user))
+})
+
+
 
 module.exports = router
