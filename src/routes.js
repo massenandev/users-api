@@ -10,4 +10,13 @@ router.get('/', (request, response) => {
 router.get('/users', (request, response) => {
   User.find({ status: 'published' }).then((users) => response.json(users))
 })
+
+router.get('/users/:userId', (request, response) => {
+  const { userId } = request.params
+  User.findOne({
+    'login.uuid': userId
+  }).exec().then((user) => response.json(user))
+})
+
+
 module.exports = router
