@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const express = require('express')
 const axios = require('axios')
 const User = require('./models/User')
+const routes = require('./routes')
 
 main().catch(err => console.log(err));
 
@@ -22,6 +23,7 @@ async function main() {
   // });
 
   const app = express()
+  app.use(routes)
   app.listen(3000, () => console.log('App is running'))
 }
 
