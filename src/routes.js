@@ -24,6 +24,10 @@ router.put('/users/:userId', (request, response) => {
   User.findOneAndUpdate({ 'login.uuid': userId }, body, { new: true }).exec().then((user) => response.json(user))
 })
 
-
+router.delete('/users/:userId', (request, response) => {
+  const { userId } = request.params
+  User.findOneAndDelete({ 'login.uuid': userId })
+  response.status(204)
+})
 
 module.exports = router
