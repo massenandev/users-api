@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "massenandev <massenandev@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
