@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
   location: {
     street: {
       number: {
-        type: Number
+        type: String
       },
       name: {
         type: String
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
       type: String
     },
     postcode: {
-      type: Number
+      type: String
     },
     coordinates: {
       latitude: {
@@ -84,7 +84,7 @@ const userSchema = new mongoose.Schema({
       type: Date
     },
     age: {
-      type: Number
+      type: String
     }
   },
   registered: {
@@ -92,7 +92,7 @@ const userSchema = new mongoose.Schema({
       type: Date
     },
     age: {
-      type: Number
+      type: String
     }
   },
   phone: {
@@ -100,14 +100,6 @@ const userSchema = new mongoose.Schema({
   },
   cell: {
     type: String
-  },
-  id: {
-    name: {
-      type: String
-    },
-    value: {
-      type: String
-    }
   },
   picture: {
     large: {
@@ -125,7 +117,8 @@ const userSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['draft', 'trash', 'published']
+    enum: ['draft', 'trash', 'published'],
+    default: 'published'
   },
   imported_t: {
     type: Date

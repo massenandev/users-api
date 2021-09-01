@@ -1,14 +1,11 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const axios = require('axios')
-// const user = require('./models/User')
+const User = require('./models/User')
 
 main().catch(err => console.log(err));
 
-axios.get('https://randomuser.me/api')
-  .then((response) => {
-    console.log(response.data);
-  });
+
 
 async function main() {
   await mongoose.connect('mongodb://localhost:27017', {
@@ -18,6 +15,13 @@ async function main() {
       password: 'root'
     }
   });
+
+  // axios.get('https://randomuser.me/api/?results=10')
+  // .then((response) => {
+  //   User.insertMany(response.data.results)
+  // });
+
   const app = express()
   app.listen(3000, () => console.log('App is running'))
 }
+
