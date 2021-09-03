@@ -1,0 +1,802 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "User API",
+    "description": "This is an API to manage users",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Users management"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [ "Users" ],
+        "summary": "Returns a message",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": {
+                    "message": "REST Back-end Challenge 20201209 Running"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": "string"
+                  },
+                  "example": {
+                    "error": "Internal server error. Please, try again later"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [ "Users" ],
+        "summary": "Returns all users",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "gender": {
+                        "type": "String"
+                      },
+                      "name": {
+                        "title": {
+                          "type": "String"
+                        },
+                        "first": {
+                          "type": "String"
+                        },
+                        "last": {
+                          "type": "String"
+                        }
+                      },
+                      "location": {
+                        "street": {
+                          "type": "String"
+                        },
+                        "city": {
+                          "type": "String"
+                        },
+                        "state": {
+                          "type": "String"
+                        },
+                        "postcode": {
+                          "type": "Date"
+                        },
+                        "coordinates": {
+                          "latitude": {
+                            "type": "String"
+                          },
+                          "longitude": {
+                            "type": "String"
+                          }
+                        },
+                        "timezone": {
+                          "offset": {
+                            "type": "String"
+                          },
+                          "description": {
+                            "type": "String"
+                          }
+                        }
+                      },
+                      "email": {
+                        "type": "String"
+                      },
+                      "login": {
+                        "uuid": {
+                          "type": "String"
+                        },
+                        "username": {
+                          "type": "String"
+                        },
+                        "password": {
+                          "type": "String"
+                        },
+                        "salt": {
+                          "type": "String"
+                        },
+                        "md5": {
+                          "type": "String"
+                        },
+                        "sha1": {
+                          "type": "String"
+                        },
+                        "sha256": {
+                          "type": "String"
+                        }
+                      },
+                      "dob": {
+                        "date": {
+                          "type": "Date"
+                        },
+                        "age": {
+                          "type": "Number"
+                        }
+                      },
+                      "registered": {
+                        "date": {
+                          "type": "Date"
+                        },
+                        "age": {
+                          "type": "Number"
+                        }
+                      },
+                      "phone": {
+                        "type": "String"
+                      },
+                      "cell": {
+                        "type": "String"
+                      },
+                      "picture": {
+                        "large": {
+                          "type": "String"
+                        },
+                        "medium": {
+                          "type": "String"
+                        },
+                        "thumbnail": {
+                          "type": "String"
+                        }
+                      },
+                      "nat": {
+                        "type": "String"
+                      },
+                      "status": {
+                        "type": "String",
+                        "enum": "['draft', 'trash', 'published']",
+                        "default": "published"
+                      },
+                      "imported_t": {
+                        "type": "Date"
+                      }
+                    },
+                    "example": [
+                      {
+                        "gender": "male",
+                        "name": {
+                          "title": "Mr",
+                          "first": "John",
+                          "last": "Payne"
+                        },
+                        "location": {
+                          "street": {
+                            "number": "6502",
+                            "name": "White Oak Dr"
+                          },
+                          "city": "Chula Vista",
+                          "state": "Rhode Island",
+                          "country": "United States",
+                          "postcode": "25875",
+                          "coordinates": {
+                            "latitude": "84.6081",
+                            "longitude": "-70.7704"
+                          },
+                          "timezone": {
+                            "offset": "-6:00",
+                            "description": "Central Time (US & Canada), Mexico City"
+                          }
+                        },
+                        "email": "john.payne@example.com",
+                        "login": {
+                          "uuid": "8a3af2c2-b382-4f78-a54e-11e858f31960",
+                          "username": "browntiger157",
+                          "password": "ffffffff",
+                          "salt": "SoIl0CGN",
+                          "md5": "137237d2e1d7ec7a6e3848906e2cb333",
+                          "sha1": "ebc0bfba88458c6e367a7a2fa349842d90db8e1e",
+                          "sha256": "a2d16fb29bee04d94e7b02561b089416c587b3ef807045c6ba9eccd396e27bda"
+                        },
+                        "dob": {
+                          "date": "1948-10-05T13:09:02.715Z",
+                          "age": "73"
+                        },
+                        "registered": {
+                          "date": "2018-02-10T02:14:18.162Z",
+                          "age": "3"
+                        },
+                        "phone": "(359)-205-4052",
+                        "cell": "(228)-117-0231",
+                        "picture": {
+                          "large": "https://randomuser.me/api/portraits/men/55.jpg",
+                          "medium": "https://randomuser.me/api/portraits/med/men/55.jpg",
+                          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/55.jpg"
+                        },
+                        "nat": "US",
+                        "status": "published",
+                        "imported_t": "2016-05-18T16:00:00Z"
+                      },
+                      {
+                        "gender": "female",
+                        "name": {
+                          "title": "Ms",
+                          "first": "Luka",
+                          "last": "Selzer"
+                        },
+                        "location": {
+                          "street": {
+                            "number": "1212",
+                            "name": "Poststraße"
+                          },
+                          "city": "Blaustein",
+                          "state": "Nordrhein-Westfalen",
+                          "country": "Germany",
+                          "postcode": "85198",
+                          "coordinates": {
+                            "latitude": "-40.5985",
+                            "longitude": "134.5814"
+                          },
+                          "timezone": {
+                            "offset": "+1:00",
+                            "description": "Brussels, Copenhagen, Madrid, Paris"
+                          }
+                        },
+                        "email": "luka.selzer@example.com",
+                        "login": {
+                          "uuid": "adf71c19-d0e4-429d-8997-c120b7479877",
+                          "username": "heavyrabbit172",
+                          "password": "monty1",
+                          "salt": "d4skK3VL",
+                          "md5": "62aaea631c19ba2972df8c19033f7ea0",
+                          "sha1": "1e357c26c35d7322a08e786253db5a907c366649",
+                          "sha256": "de2ae2fc58e4930f422b124c864750c7e3f162631f89230873b7e74cae4cee0d"
+                        },
+                        "dob": {
+                          "date": "1953-09-07T18:32:55.043Z",
+                          "age": "68"
+                        },
+                        "registered": {
+                          "date": "2003-01-19T19:07:24.645Z",
+                          "age": "18"
+                        },
+                        "phone": "0424-6544512",
+                        "cell": "0178-4558188",
+                        "picture": {
+                          "large": "https://randomuser.me/api/portraits/women/71.jpg",
+                          "medium": "https://randomuser.me/api/portraits/med/women/71.jpg",
+                          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/71.jpg"
+                        },
+                        "nat": "DE",
+                        "status": "published",
+                        "imported_t": "2016-05-18T16:00:00Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": "string"
+                  },
+                  "example": {
+                    "error": "Internal server error. Please, try again later"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "tags": [ "Users" ],
+        "summary": "Returns a specific user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "description": "ID of the user to get",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "gender": {
+                      "type": "String"
+                    },
+                    "name": {
+                      "title": {
+                        "type": "String"
+                      },
+                      "first": {
+                        "type": "String"
+                      },
+                      "last": {
+                        "type": "String"
+                      }
+                    },
+                    "location": {
+                      "street": {
+                        "type": "String"
+                      },
+                      "city": {
+                        "type": "String"
+                      },
+                      "state": {
+                        "type": "String"
+                      },
+                      "postcode": {
+                        "type": "Date"
+                      },
+                      "coordinates": {
+                        "latitude": {
+                          "type": "String"
+                        },
+                        "longitude": {
+                          "type": "String"
+                        }
+                      },
+                      "timezone": {
+                        "offset": {
+                          "type": "String"
+                        },
+                        "description": {
+                          "type": "String"
+                        }
+                      }
+                    },
+                    "email": {
+                      "type": "String"
+                    },
+                    "login": {
+                      "uuid": {
+                        "type": "String"
+                      },
+                      "username": {
+                        "type": "String"
+                      },
+                      "password": {
+                        "type": "String"
+                      },
+                      "salt": {
+                        "type": "String"
+                      },
+                      "md5": {
+                        "type": "String"
+                      },
+                      "sha1": {
+                        "type": "String"
+                      },
+                      "sha256": {
+                        "type": "String"
+                      }
+                    },
+                    "dob": {
+                      "date": {
+                        "type": "Date"
+                      },
+                      "age": {
+                        "type": "Number"
+                      }
+                    },
+                    "registered": {
+                      "date": {
+                        "type": "Date"
+                      },
+                      "age": {
+                        "type": "Number"
+                      }
+                    },
+                    "phone": {
+                      "type": "String"
+                    },
+                    "cell": {
+                      "type": "String"
+                    },
+                    "picture": {
+                      "large": {
+                        "type": "String"
+                      },
+                      "medium": {
+                        "type": "String"
+                      },
+                      "thumbnail": {
+                        "type": "String"
+                      }
+                    },
+                    "nat": {
+                      "type": "String"
+                    },
+                    "status": {
+                      "type": "String",
+                      "enum": "['draft', 'trash', 'published']",
+                      "default": "published"
+                    },
+                    "imported_t": {
+                      "type": "Date"
+                    }
+                  },
+                  "example": {
+                    "gender": "male",
+                    "name": {
+                      "title": "Mr",
+                      "first": "Bibiano",
+                      "last": "da Rocha"
+                    },
+                    "location": {
+                      "street": {
+                        "number": "7376",
+                        "name": "Rua Quatro"
+                      },
+                      "city": "Rio Claro",
+                      "state": "Rio de Janeiro",
+                      "country": "Brazil",
+                      "postcode": "67844",
+                      "coordinates": {
+                        "latitude": "-71.0749",
+                        "longitude": "-57.4300"
+                      },
+                      "timezone": {
+                        "offset": "+5:00",
+                        "description": "Ekaterinburg, Islamabad, Karachi, Tashkent"
+                      }
+                    },
+                    "email": "bibiano.darocha@example.com",
+                    "login": {
+                      "uuid": "35ab8baa-17bd-4883-9846-8fb57981ead4",
+                      "username": "goldengorilla595",
+                      "password": "ledzep",
+                      "salt": "fBQZIGnZ",
+                      "md5": "1ce283562003ca0f6eaa326bbba9a15b",
+                      "sha1": "1342bb7d087aee72c9a54cde20ce08541233bcab",
+                      "sha256": "a14bb76910a2a81787047b7ac08a28a0d6aa83ee561de2a8a9427a0f700d7a36"
+                    },
+                    "dob": {
+                      "date": "1996-07-11T20:06:09.040Z",
+                      "age": "25"
+                    },
+                    "registered": {
+                      "date": "2014-06-06T20:50:29.205Z",
+                      "age": "7"
+                    },
+                    "phone": "(45) 5086-8250",
+                    "cell": "(24) 5540-3768",
+                    "picture": {
+                      "large": "https://randomuser.me/api/portraits/men/35.jpg",
+                      "medium": "https://randomuser.me/api/portraits/med/men/35.jpg",
+                      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/35.jpg"
+                    },
+                    "nat": "BR",
+                    "status": "published",
+                    "imported_t": "2016-05-18T16:00:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": "string"
+                  },
+                  "example": {
+                    "error": "User not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Users" ],
+        "summary": "Updates an users",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "hi@example.com"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "description": "user ID",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                    "properties": {
+                      "gender": {
+                        "type": "String"
+                      },
+                      "name": {
+                        "title": {
+                          "type": "String"
+                        },
+                        "first": {
+                          "type": "String"
+                        },
+                        "last": {
+                          "type": "String"
+                        }
+                      },
+                      "location": {
+                        "street": {
+                          "type": "String"
+                        },
+                        "city": {
+                          "type": "String"
+                        },
+                        "state": {
+                          "type": "String"
+                        },
+                        "postcode": {
+                          "type": "Date"
+                        },
+                        "coordinates": {
+                          "latitude": {
+                            "type": "String"
+                          },
+                          "longitude": {
+                            "type": "String"
+                          }
+                        },
+                        "timezone": {
+                          "offset": {
+                            "type": "String"
+                          },
+                          "description": {
+                            "type": "String"
+                          }
+                        }
+                      },
+                      "email": {
+                        "type": "String"
+                      },
+                      "login": {
+                        "uuid": {
+                          "type": "String"
+                        },
+                        "username": {
+                          "type": "String"
+                        },
+                        "password": {
+                          "type": "String"
+                        },
+                        "salt": {
+                          "type": "String"
+                        },
+                        "md5": {
+                          "type": "String"
+                        },
+                        "sha1": {
+                          "type": "String"
+                        },
+                        "sha256": {
+                          "type": "String"
+                        }
+                      },
+                      "dob": {
+                        "date": {
+                          "type": "Date"
+                        },
+                        "age": {
+                          "type": "Number"
+                        }
+                      },
+                      "registered": {
+                        "date": {
+                          "type": "Date"
+                        },
+                        "age": {
+                          "type": "Number"
+                        }
+                      },
+                      "phone": {
+                        "type": "String"
+                      },
+                      "cell": {
+                        "type": "String"
+                      },
+                      "picture": {
+                        "large": {
+                          "type": "String"
+                        },
+                        "medium": {
+                          "type": "String"
+                        },
+                        "thumbnail": {
+                          "type": "String"
+                        }
+                      },
+                      "nat": {
+                        "type": "String"
+                      },
+                      "status": {
+                        "type": "String",
+                        "enum": "['draft', 'trash', 'published']",
+                        "default": "published"
+                      },
+                      "imported_t": {
+                        "type": "Date"
+                      }
+                    },
+                    "example": {
+                      "gender": "male",
+                      "name": {
+                        "title": "Monsieur",
+                        "first": "Bujar",
+                        "last": "Guillaume"
+                      },
+                      "location": {
+                        "street": {
+                          "number": "6693",
+                          "name": "Place de L'Abbé-Franz-Stock"
+                        },
+                        "city": "Leissigen",
+                        "state": "Ticino",
+                        "country": "Switzerland",
+                        "postcode": "2302",
+                        "coordinates": {
+                          "latitude": "-47.9924",
+                          "longitude": "-59.3163"
+                        },
+                        "timezone": {
+                          "offset": "-9:00",
+                          "description": "Alaska"
+                        }
+                      },
+                      "email": "bujar.guillaume@example.com",
+                      "login": {
+                        "uuid": "261a37c9-54ba-4d6c-8813-ef4b2841080d",
+                        "username": "bigduck887",
+                        "password": "macman",
+                        "salt": "trQM2xWr",
+                        "md5": "69c4f73d17d820c8b06744e8103741aa",
+                        "sha1": "bd23055c50cc8fa96657eb1002749b21090042a1",
+                        "sha256": "81d7d6d6281878c77c2855ced834608dd22ffcb74d65947dece38d9b7b930a6b"
+                      },
+                      "dob": {
+                        "date": "1998-02-15T23:41:12.633Z",
+                        "age": "23"
+                      },
+                      "registered": {
+                        "date": "2006-12-25T00:23:45.729Z",
+                        "age": "15"
+                      },
+                      "phone": "077 200 50 83",
+                      "cell": "075 746 65 75",
+                      "id": {
+                        "name": "AVS",
+                        "value": "756.7260.0054.64"
+                      },
+                      "picture": {
+                        "large": "https://randomuser.me/api/portraits/men/73.jpg",
+                        "medium": "https://randomuser.me/api/portraits/med/men/73.jpg",
+                        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/73.jpg"
+                      },
+                      "nat": "CH",
+                      "status": "published",
+                      "imported_t": "2016-05-18T16:00:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": "string"
+                  },
+                  "example": {
+                    "error": "User not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Users" ],
+        "summary": "Removes an user",
+        "parameters": [
+          {
+            "in": "params",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User deleted successfully"
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": "string"
+                  },
+                  "example": {
+                    "error": "User not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
