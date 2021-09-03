@@ -5,11 +5,17 @@
   "author": "massenandev <massenandev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
-    "mongoose": "^6.0.3"
+    "mongoose": "^6.0.3",
+    "node-cron": "^3.0.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "jest": "^27.1.0",
+    "nodemon": "^2.0.12"
   }
 }
