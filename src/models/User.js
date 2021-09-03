@@ -121,7 +121,8 @@ const userSchema = new mongoose.Schema({
     default: 'published'
   },
   imported_t: {
-    type: Date
+    type: Date,
+    default: Date.now()
   }
 })
 
