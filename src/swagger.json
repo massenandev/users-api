@@ -528,7 +528,7 @@
       },
       "put": {
         "tags": [ "Users" ],
-        "summary": "Updates an users",
+        "summary": "Updates an user",
         "requestBody": {
           "content": {
             "application/json": {
@@ -776,7 +776,7 @@
           }
         ],
         "responses": {
-          "204": {
+          "200": {
             "description": "User deleted successfully"
           },
           "404": {
