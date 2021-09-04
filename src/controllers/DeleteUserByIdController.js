@@ -5,7 +5,7 @@ class DeleteUserByIdController {
     try {
       const { userId } = request.params
       User.findOneAndDelete({ 'login.uuid': userId })
-      response.status(204)
+      response.status(200).json({ message: 'User deleted successfully' })
     } catch (error){
       return response.status(404).json({ error: 'User not found' })
     }
