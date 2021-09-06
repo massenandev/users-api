@@ -2,7 +2,7 @@ const { Router } = require('express')
 
 const returnMessageController = require('./controllers/ReturnMessageController')
 const listAllUsersController = require('./controllers/ListAllUsersController')
-const listUserByIdController = require('./controllers/ListUserByIdController')
+const getUserByIdController = require('./controllers/GetUserByIdController')
 const updateUserController = require('./controllers/UpdateUserController')
 const deleteUserByIdController = require('./controllers/DeleteUserByIdController')
 
@@ -17,7 +17,7 @@ router.get('/users', (request, response) => {
 })
 
 router.get('/users/:userId', (request, response) => {
-  listUserByIdController.handle(request, response)
+  getUserByIdController.handle(request, response)
 })
 
 router.put('/users/:userId', (request, response) => {

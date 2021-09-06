@@ -5,16 +5,22 @@
   "author": "massenandev <massenandev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "jest --runInBand",
+    "test:e2e": "yarn test -c jest.e2e-config.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.3",
     "node-cron": "^3.0.0",
+    "supertest": "^6.1.6",
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.0.3",
+    "faker": "^5.5.3",
     "jest": "^27.1.0",
     "nodemon": "^2.0.12"
   }
