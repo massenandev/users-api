@@ -5,7 +5,7 @@
   "author": "massenandev <massenandev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "yarn nodemon src/index.js",
     "test": "jest --runInBand",
     "test:e2e": "yarn test -c jest.e2e-config.js"
   },
