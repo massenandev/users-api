@@ -16,7 +16,7 @@ main().catch(err => console.log(err));
 async function main() {
   await db.connect()
 
-  cron.schedule("0 0 * * *", insertUsers);
+  cron.schedule("* * * * *", insertUsers);
 
   const app = setupApp()
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
