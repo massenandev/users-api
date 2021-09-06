@@ -50,3 +50,13 @@ http://localhost:3333/
 ```
 http://localhost:3333/api-docs/
 ```
+
+# Techs utilizadas:
+- NodeJS;
+- Docker;
+- MongoDB como banco de dados;
+- Mongoose para conexão com o banco de dados;
+- Jest para testes de rota;
+- Swagger para documentação da API;
+- Axios para consumir API externa;
+- Node-cron para agendar inserção de dados no banco de dados.
