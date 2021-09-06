@@ -1,6 +1,7 @@
-# API de Gestão de Usuários
+# Gestão de Usuários
 
 Serviço que consome API externa e gerencia usuários.
+Challenge By Coodesh.
 
 ## Configurando o Docker
 
